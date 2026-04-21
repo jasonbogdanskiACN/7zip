@@ -2,6 +2,8 @@
 
 #include "StdAfx.h"
 
+#include "../../Z7Trace.h"
+
 #include "../../../Common/MyWindows.h"
 
 #if defined(__MINGW32__) || defined(__MINGW64__)
@@ -881,9 +883,9 @@ static void ExecuteCommand(UINT commandID)
 
   switch (commandID)
   {
-    case kMenuCmdID_Toolbar_Add: g_App.AddToArchive(); break;
-    case kMenuCmdID_Toolbar_Extract: g_App.ExtractArchives(); break;
-    case kMenuCmdID_Toolbar_Test: g_App.TestArchives(); break;
+    case kMenuCmdID_Toolbar_Add:     Z7TRACE("WF-ADD triggered"); g_App.AddToArchive(); break;
+    case kMenuCmdID_Toolbar_Extract: Z7TRACE("WF-EXTRACT triggered"); g_App.ExtractArchives(); break;
+    case kMenuCmdID_Toolbar_Test:    Z7TRACE("WF-TEST triggered"); g_App.TestArchives(); break;
   }
 }
 

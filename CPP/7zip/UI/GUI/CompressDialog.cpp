@@ -2,6 +2,8 @@
 
 #include "StdAfx.h"
 
+#include "../../Z7Trace.h"
+
 #include "../../../../C/CpuArch.h"
 
 #include "../../../Common/IntToString.h"
@@ -1070,6 +1072,7 @@ void CCompressDialog::OnOK()
   {
     if (!IsAsciiString(Info.Password))
     {
+      Z7TRACE("VALIDATION FAIL: non-ASCII password");
       ShowErrorMessageHwndRes(*this, IDS_PASSWORD_USE_ASCII);
       return;
     }
@@ -1078,6 +1081,7 @@ void CCompressDialog::OnOK()
     {
       if (Info.Password.Len() > 99)
       {
+        Z7TRACE("VALIDATION FAIL: password too long (%u chars, limit 99)", Info.Password.Len());
         ShowErrorMessageHwndRes(*this, IDS_PASSWORD_TOO_LONG);
         return;
       }
@@ -1089,6 +1093,7 @@ void CCompressDialog::OnOK()
     _password2Control.GetText(password2);
     if (password2 != Info.Password)
     {
+      Z7TRACE("VALIDATION FAIL: password confirmation mismatch");
       ShowErrorMessageHwndRes(*this, IDS_PASSWORD_NOT_MATCH);
       return;
     }
@@ -1113,6 +1118,7 @@ void CCompressDialog::OnOK()
         }
         UString s;
         SetErrorMessage_MemUsage(s, memUsage, _ramSize, limit, s2);
+        Z7TRACE("VALIDATION FAIL: memory limit exceeded (required=%I64u limit=%I64u)", memUsage, limit);
         MessageBoxError(s);
         return;
       }
@@ -1217,6 +1223,7 @@ void CCompressDialog::OnOK()
   {
     if (!ParseVolumeSizes(volumeString, Info.VolumeSizes))
     {
+      Z7TRACE("VALIDATION FAIL: invalid volume size string");
       ShowErrorMessageHwndRes(*this, IDS_INCORRECT_VOLUME_SIZE);
       return;
     }

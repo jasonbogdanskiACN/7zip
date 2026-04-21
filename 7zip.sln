@@ -1,0 +1,38 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{9C6578E7-E4FE-79BB-1635-F363CC1E80DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "skills", "skills", "{FB68EC01-E463-147A-03A9-4B27A70C8D3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7zip-slice-verify", "7zip-slice-verify", "{4D728E4C-E5B4-E0F6-4370-05FA3E935FA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{922F9065-E976-C602-6336-A572B52C8D34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProbeApp", ".github\skills\7zip-slice-verify\scripts\ProbeApp\ProbeApp.csproj", "{61D4477C-B22E-69A1-31F9-640B0A0500B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61D4477C-B22E-69A1-31F9-640B0A0500B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61D4477C-B22E-69A1-31F9-640B0A0500B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61D4477C-B22E-69A1-31F9-640B0A0500B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61D4477C-B22E-69A1-31F9-640B0A0500B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FB68EC01-E463-147A-03A9-4B27A70C8D3A} = {9C6578E7-E4FE-79BB-1635-F363CC1E80DD}
+		{4D728E4C-E5B4-E0F6-4370-05FA3E935FA5} = {FB68EC01-E463-147A-03A9-4B27A70C8D3A}
+		{922F9065-E976-C602-6336-A572B52C8D34} = {4D728E4C-E5B4-E0F6-4370-05FA3E935FA5}
+		{61D4477C-B22E-69A1-31F9-640B0A0500B2} = {922F9065-E976-C602-6336-A572B52C8D34}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D70D70D-9A16-4914-A162-F498EED2502D}
+	EndGlobalSection
+EndGlobal

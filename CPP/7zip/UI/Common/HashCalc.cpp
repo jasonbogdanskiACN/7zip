@@ -2,6 +2,8 @@
 
 #include "StdAfx.h"
 
+#include "../../Z7Trace.h"
+
 #include "../../../../C/Alloc.h"
 #include "../../../../C/CpuArch.h"
 
@@ -184,6 +186,8 @@ void CHasherState::AddDigest(unsigned groupIndex, const Byte *data)
 
 void CHashBundle::Final(bool isDir, bool isAltStream, const UString &path)
 {
+  Z7TRACE("HashFinal: isDir=%d isAltStream=%d size=%I64u path=%ls",
+      (int)isDir, (int)isAltStream, CurSize, path.Ptr());
   if (isDir)
     NumDirs++;
   else if (isAltStream)
@@ -209,7 +213,10 @@ void CHashBundle::Final(bool isDir, bool isAltStream, const UString &path)
     {
       h.Hasher->Final(h.Digests[0]); // k_HashCalc_Index_Current
       if (!isAltStream)
+      {
         h.AddDigest(k_HashCalc_Index_DataSum, h.Digests[0]);
+        Z7TRACE("HashFinal: DataSum updated (file, not alt-stream)");
+      }
     }
 
     h.Hasher->Init();

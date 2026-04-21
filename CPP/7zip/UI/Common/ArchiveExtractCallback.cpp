@@ -2,6 +2,8 @@
 
 #include "StdAfx.h"
 
+#include "../../Z7Trace.h"
+
 #undef sprintf
 #undef printf
 
@@ -1463,6 +1465,7 @@ HRESULT CArchiveExtractCallback::GetExtractStream(CMyComPtr<ISequentialOutStream
   _outFileStreamSpec = new COutFileStream;
   CMyComPtr<IOutStream> outFileStream_Loc(_outFileStreamSpec);
   
+  Z7TRACE("GetStream[%u] CreateFile: %ls", index, fullProcessedPath.Ptr());
   if (!_outFileStreamSpec->Create_ALWAYS_or_Open_ALWAYS(fullProcessedPath, !_isSplit))
   {
     // if (::GetLastError() != ERROR_FILE_EXISTS || !isSplit)
@@ -1636,10 +1639,17 @@ Z7_COM7F_IMF(CArchiveExtractCallback::GetStream(UInt32 index, ISequentialOutStre
     case NArchive::NExtract::NAskMode::kExtract:
       if (_testMode)
       {
+        Z7TRACE("GetStream[%u] testMode=true -> null-sink (no file written)", index);
         // askExtractMode = NArchive::NExtract::NAskMode::kTest;
       }
       else
+      {
+        Z7TRACE("GetStream[%u] testMode=false -> extract to file", index);
         _extractMode = true;
+      }
+      break;
+    case NArchive::NExtract::NAskMode::kTest:
+      Z7TRACE("GetStream[%u] kTest mode -> null-sink CRC check", index);
       break;
     default: break;
   }

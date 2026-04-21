@@ -1,0 +1,6 @@
+{
+  "ExePath": "c:\\dev\\7zip\\traced-build\\7zFM.exe",
+  "MainWindowTitle": "7-Zip",
+  "UiaBackend": "UIA2",
+  "TraceLog": "C:\\Temp\\7z_trace.log"
+}

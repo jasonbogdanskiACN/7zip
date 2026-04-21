@@ -137,6 +137,12 @@ CFLAGS = $(CFLAGS) -D_ARM_WINAPI_PARTITION_DESKTOP_SDK_AVAILABLE
 !ENDIF
 !ENDIF
 
+# Extension point for instrumented / debug builds.
+# Pass extra defines on the nmake command line: nmake MY_CFLAGS="/DZ7_TRACE_ENABLE ..."
+!IFDEF MY_CFLAGS
+CFLAGS = $(CFLAGS) $(MY_CFLAGS)
+!ENDIF
+
 !IF "$(PLATFORM)" == "x64"
 CFLAGS_O1 = $(CFLAGS) -O1
 !ELSE

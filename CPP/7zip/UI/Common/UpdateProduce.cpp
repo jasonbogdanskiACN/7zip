@@ -2,6 +2,8 @@
 
 #include "StdAfx.h"
 
+#include "../../Z7Trace.h"
+
 #include "UpdateProduce.h"
 
 using namespace NUpdateArchive;
@@ -29,6 +31,7 @@ void UpdateProduce(
       case NPairAction::kIgnore:
         if (pair.ArcIndex >= 0 && callback)
           callback->ShowDeleteFile((unsigned)pair.ArcIndex);
+        Z7TRACE("PAIR[%u] state=%u action=IGNORE (delete/skip from archive)", i, (unsigned)pair.State);
         continue;
 
       case NPairAction::kCopy:
@@ -49,17 +52,20 @@ void UpdateProduce(
         }
         up2.NewData = up2.NewProps = false;
         up2.UseArcProps = true;
+        Z7TRACE("PAIR[%u] state=%u action=COPY (verbatim copy from archive)", i, (unsigned)pair.State);
         break;
       
       case NPairAction::kCompress:
         if (pair.State == NPairState::kOnlyInArchive ||
             pair.State == NPairState::kNotMasked)
           throw kUpdateActionSetCollision;
+        Z7TRACE("PAIR[%u] state=%u action=COMPRESS (re-encode from disk)", i, (unsigned)pair.State);
         break;
       
       case NPairAction::kCompressAsAnti:
         up2.IsAnti = true;
         up2.UseArcProps = (pair.ArcIndex >= 0);
+        Z7TRACE("PAIR[%u] state=%u action=COMPRESS_AS_ANTI", i, (unsigned)pair.State);
         break;
       
       default: throw 123; // break; // is unexpected case

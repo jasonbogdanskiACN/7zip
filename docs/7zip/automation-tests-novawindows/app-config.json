@@ -1,0 +1,5 @@
+{
+  "ExePath": "c:\\dev\\7zip\\traced-build\\7zFM.exe",
+  "AppiumUrl": "http://127.0.0.1:4723",
+  "TraceLog": "C:\\Temp\\7z_trace.log"
+}

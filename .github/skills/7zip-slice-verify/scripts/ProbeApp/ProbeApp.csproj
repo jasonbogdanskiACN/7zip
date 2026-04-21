@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>ProbeApp</RootNamespace>
+    <AssemblyName>ProbeApp</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- UIA2 for Win32/MFC apps; UIA3 for WPF/WinUI/UWP (selectable at runtime via the -uia3 flag) -->
+    <PackageReference Include="FlaUI.UIA2" Version="5.*" />
+    <PackageReference Include="FlaUI.UIA3" Version="5.*" />
+  </ItemGroup>
+</Project>

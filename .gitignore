@@ -1,0 +1,45 @@
+# ── Python ────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# ── Virtual environment ───────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── .NET / C# build outputs ───────────────────────────────────────────────
+**/bin/
+**/obj/
+*.user
+*.suo
+.vs/
+
+# ── 7-Zip build outputs ───────────────────────────────────────────────────
+traced-build/
+
+# nmake build artifacts under CPP/7zip/Bundles/<name>/x64 (and x86/Release/Debug)
+# Includes: .obj .exe .pch .res .z7trace_defs
+CPP/7zip/Bundles/*/x64/
+CPP/7zip/Bundles/*/x86/
+CPP/7zip/Bundles/*/Release/
+CPP/7zip/Bundles/*/Debug/
+
+# ── Appium / NovaWindows server logs ──────────────────────────────────────
+appium.log
+appium-err.log
+
+# ── Scratch / temp files (project root) ──────────────────────────────────
+pw-wf01.txt
+test-run.txt
+test-run2.txt
+test-run3.txt
+test-run4.txt
+test-final.txt
+test-final2.txt
+test-ui.py
+
+# ── OS files ──────────────────────────────────────────────────────────────
+Thumbs.db
+.DS_Store
